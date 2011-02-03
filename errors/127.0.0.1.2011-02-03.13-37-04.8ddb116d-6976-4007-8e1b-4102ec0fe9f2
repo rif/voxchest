@@ -1,0 +1,518 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p4
+sS'code'
+p5
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a samples controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n## - call exposes all registered services (none by default)\n#########################################################################\n\ndef index():\n    session.forget()\n    curent = 0\n    if len(request.args) > 0:\n        curent = request.args[0]\n    intr = db.intrebare(curent)\n    form = crud.update(db.intrebare, intr)\n    return dict(form=form, intrebare=intr)\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request,db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    session.forget()\n    return service()\n\nresponse._vars=response._caller(index)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__hash__'
+p11
+S"<method-wrapper '__hash__' of exceptions.IndexError object at 0x34c7508>"
+p12
+sS'__setattr__'
+p13
+S"<method-wrapper '__setattr__' of exceptions.IndexError object at 0x34c7508>"
+p14
+sS'__reduce_ex__'
+p15
+S'<built-in method __reduce_ex__ of exceptions.IndexError object at 0x34c7508>'
+p16
+sS'__getslice__'
+p17
+S"<method-wrapper '__getslice__' of exceptions.IndexError object at 0x34c7508>"
+p18
+sS'__getitem__'
+p19
+S"<method-wrapper '__getitem__' of exceptions.IndexError object at 0x34c7508>"
+p20
+sS'__setstate__'
+p21
+S'<built-in method __setstate__ of exceptions.IndexError object at 0x34c7508>'
+p22
+sS'__reduce__'
+p23
+S'<built-in method __reduce__ of exceptions.IndexError object at 0x34c7508>'
+p24
+sS'__str__'
+p25
+S"<method-wrapper '__str__' of exceptions.IndexError object at 0x34c7508>"
+p26
+sS'args'
+p27
+S"('string index out of range',)"
+p28
+sS'__getattribute__'
+p29
+S"<method-wrapper '__getattribute__' of exceptions.IndexError object at 0x34c7508>"
+p30
+sS'__class__'
+p31
+S"<type 'exceptions.IndexError'>"
+p32
+sS'__delattr__'
+p33
+S"<method-wrapper '__delattr__' of exceptions.IndexError object at 0x34c7508>"
+p34
+sS'__repr__'
+p35
+S"<method-wrapper '__repr__' of exceptions.IndexError object at 0x34c7508>"
+p36
+sS'__dict__'
+p37
+S'{}'
+p38
+sS'__doc__'
+p39
+S"'Sequence index out of range.'"
+p40
+sS'__init__'
+p41
+S"<method-wrapper '__init__' of exceptions.IndexError object at 0x34c7508>"
+p42
+sS'__new__'
+p43
+S'<built-in method __new__ of type object at 0x19f90c0>'
+p44
+ssS'evalue'
+p45
+S'string index out of range'
+p46
+sS'request'
+p47
+(dp48
+S'function'
+p49
+S"'index'"
+p50
+sS'body'
+p51
+S'<cStringIO.StringO object at 0x32dcc80>'
+p52
+sS'wsgi'
+p53
+S"<Storage {'start_response': <function <lambda> a...deflate', 'PATH_INFO': '/daruri/default/index'}}>"
+p54
+sS'extension'
+p55
+S"'html'"
+p56
+sS'vars'
+p57
+S'<Storage {}>'
+p58
+sS'cid'
+p59
+S'None'
+p60
+sS'url'
+p61
+S'<gluon.html.XML object at 0x32dc550>'
+p62
+sS'raw_extension'
+p63
+S'None'
+p64
+sg27
+S'[]'
+p65
+sS'controller'
+p66
+S"'default'"
+p67
+sS'cookies'
+p68
+S"<SimpleCookie: __utma='96992031.364672225.129534...03' sessionid='8ac6b2c4407419651e81807c39ff405f'>"
+p69
+sS'application'
+p70
+S"'daruri'"
+p71
+sS'ajax'
+p72
+S'False'
+p73
+sS'client'
+p74
+S"'127.0.0.1'"
+p75
+sS'env'
+p76
+S"<Storage {'wsgi_multithread': True, 'http_accept...: '54192', 'path_info': '/daruri/default/index'}>"
+p77
+sS'raw_args'
+p78
+S'None'
+p79
+sS'get_vars'
+p80
+S'<Storage {}>'
+p81
+sS'folder'
+p82
+S"'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/'"
+p83
+sS'now'
+p84
+S'datetime.datetime(2011, 2, 3, 13, 37, 4, 596350)'
+p85
+sS'post_vars'
+p86
+S'<Storage {}>'
+p87
+ssS'frames'
+p88
+(lp89
+(dp90
+S'file'
+p91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/restricted.py'
+p92
+sS'dump'
+p93
+(dp94
+sS'lnum'
+p95
+I188
+sS'lines'
+p96
+(dp97
+sS'call'
+p98
+S"(code='# -*- coding: utf-8 -*-\\n# this file is released ...ervice()\\n\\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}, layer='/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py')"
+p99
+sS'func'
+p100
+S'restricted'
+p101
+sa(dp102
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p103
+sg93
+(dp104
+sg95
+I56
+sg96
+(dp105
+I45
+S''
+sI46
+S'def call():'
+p106
+sI47
+S'    """'
+p107
+sI48
+S'    exposes services. for example:'
+p108
+sI49
+S'    http://..../[app]/default/call/jsonrpc'
+p109
+sI50
+S'    decorate with @services.jsonrpc the functions to expose'
+p110
+sI51
+S'    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv'
+p111
+sI52
+S'    """'
+p112
+sI53
+S'    session.forget()'
+p113
+sI54
+S'    return service()'
+p114
+ssg98
+S'()'
+p115
+sg100
+S'<module>'
+p116
+sa(dp117
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/globals.py'
+p118
+sg93
+(dp119
+sg95
+I95
+sg96
+(dp120
+sg98
+S'(f=<function index at 0x327f4b0>)'
+p121
+sg100
+S'<lambda>'
+p122
+sa(dp123
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p124
+sg93
+(dp125
+sg95
+I18
+sg96
+(dp126
+I13
+S'    session.forget()'
+p127
+sI14
+S'    curent = 0'
+p128
+sI15
+S'    if len(request.args) > 0:'
+p129
+sI16
+S'        curent = request.args[0]'
+p130
+sI17
+S'    intr = db.intrebare(curent)'
+p131
+sI18
+S'    form = crud.update(db.intrebare, intr)'
+p132
+sI19
+S'    return dict(form=form, intrebare=intr)'
+p133
+sI20
+S''
+sI21
+S'def user():'
+p134
+sI22
+S'    """'
+p135
+ssg98
+S'()'
+p136
+sg100
+S'index'
+p137
+sa(dp138
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/tools.py'
+p139
+sg93
+(dp140
+sg95
+I2823
+sg96
+(dp141
+sg98
+S"(self=<gluon.tools.Crud object at 0x32dcc30>, table=<Table {'continut': <gluon.dal.Field object at 0...0>, 'id': <gluon.dal.Field object at 0x32f2110>}>, record=None, next=None, onvalidation=<Storage {}>, onaccept=<Storage {}>, ondelete=<Storage {}>, log='Record %(id)s updated', message='Record Updated', deletable=True)"
+p142
+sg100
+S'update'
+p143
+sa(dp144
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/sqlhtml.py'
+p145
+sg93
+(dp146
+sg95
+I809
+sg96
+(dp147
+sg98
+S"(self=<gluon.sqlhtml.SQLFORM object at 0x32cb9f0>, table=<Table {'continut': <gluon.dal.Field object at 0...0>, 'id': <gluon.dal.Field object at 0x32f2110>}>, record=None, deletable=True, linkto=None, upload=<gluon.html.XML object at 0x32f4430>, fields=['id', 'continut', 'evaluare'], labels=None, col3={}, submit_button='Submit', delete_label='Check to delete:', showid=False, readonly=False, comments=True, keepopts=[], ignore_rw=False, record_id=None, formstyle='table3cols', **attributes={'hidden': {'_next': None}})"
+p148
+sg100
+g41
+sa(dp149
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/sqlhtml.py'
+p150
+sg93
+(dp151
+sg95
+I272
+sg96
+(dp152
+sg98
+S"(field=<gluon.dal.Field object at 0x32f2b10>, value='niciodata', size=5, **attributes={'_multiple': True, '_size': 5})"
+p153
+sg100
+S'widget'
+p154
+sa(dp155
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/sqlhtml.py'
+p156
+sg93
+(dp157
+sg95
+I206
+sg96
+(dp158
+sg98
+S"(field=<gluon.dal.Field object at 0x32f2b10>, value='niciodata', **attributes={'_multiple': True, '_size': 5})"
+p159
+sg100
+g154
+sa(dp160
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/validators.py'
+p161
+sg93
+(dp162
+sg95
+I307
+sg96
+(dp163
+sg98
+S'(self=<gluon.validators.IS_IN_SET object at 0x32f2b90>)'
+p164
+sg100
+S'options'
+p165
+sasS'pyver'
+p166
+S'Python 2.5.1: /Volumes/650Gb HD/web2py/web2py.app/Contents/MacOS/python'
+p167
+sS'session'
+p168
+(dp169
+S'last_orderby'
+p170
+S'None'
+p171
+sS'last_query'
+p172
+S"'db.intrebare.id>0'"
+p173
+sS'_forget'
+p174
+S'True'
+p175
+sS'auth'
+p176
+S'None'
+p177
+ssS'etype'
+p178
+S"<type 'exceptions.IndexError'>"
+p179
+sS'date'
+p180
+S'Thu Feb  3 13:37:04 2011'
+p181
+sS'response'
+p182
+(dp183
+S'status'
+p184
+S'200'
+p185
+sg51
+S'<cStringIO.StringO object at 0x32dc020>'
+p186
+sg68
+S"<SimpleCookie: session_id_daruri='127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'>"
+p187
+sS'_vars'
+p188
+S'None'
+p189
+sS'title'
+p190
+S"'daruri'"
+p191
+sS'session_file'
+p192
+S"<open file '/Volumes/650Gb HD/web2py/web2py.app/...4c63-9a27-021af1b918e4', mode 'rb+' at 0x3265f08>"
+p193
+sS'flash'
+p194
+S"''"
+p195
+sS'_custom_rollback'
+p196
+S'None'
+p197
+sS'session_id'
+p198
+S"'127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'"
+p199
+sS'headers'
+p200
+S"<Storage {'Expires': 'Thu, 03 Feb 2011 11:37:04 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p201
+sS'meta'
+p202
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p203
+sS'session_filename'
+p204
+S"'/Volumes/650Gb HD/web2py/web2py.app/Contents/Res...ns/127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'"
+p205
+sS'postprocessing'
+p206
+S'[]'
+p207
+sS'menu'
+p208
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object at 0x32f2cb0>, []), (<lazyT 'This App'>, False, <gluon.html.XML object at 0x32f2790>, [(<lazyT 'Controller'>, False, <gluon.html.XML object at 0x32f2630>), (<lazyT 'View'>, False, <gluon.html.XML object at 0x32f25d0>), (<lazyT 'Layout'>, False, <gluon.html.XML object at 0x32f2430>), (<lazyT 'Stylesheet'>, False, <gluon.html.XML object at 0x32f25f0>), (<lazyT 'DB Model'>, False, <gluon.html.XML object at 0x32f23d0>), (<lazyT 'Menu Model'>, False, <gluon.html.XML object at 0x32f2250>), (<lazyT 'Database'>, False, <gluon.html.XML object at 0x32f2890>), (<lazyT 'Errors'>, False, <gluon.html.XML object at 0x32f2350>), (<lazyT 'About'>, False, <gluon.html.XML object at 0x32f23f0>)]), (<lazyT 'Resources'>, False, None, [(<lazyT 'Documentation'>, False, 'http://www.web2py.com/book', [(<lazyT 'Preface'>, False, 'http://www.web2py.com/book/default/chapter/00'), (<lazyT 'Introduction'>, False, 'http://www.web2py.com/book/default/chapter/01'), (<lazyT 'Python'>, False, 'http://www.web2py.com/book/default/chapter/02'), (<lazyT 'Overview'>, False, 'http://www.web2py.com/book/default/chapter/03'), (<lazyT 'The Core'>, False, 'http://www.web2py.com/book/default/chapter/04'), (<lazyT 'The Views'>, False, 'http://www.web2py.com/book/default/chapter/05'), (<lazyT 'Database'>, False, 'http://www.web2py.com/book/default/chapter/06'), (<lazyT 'Forms and Validators'>, False, 'http://www.web2py.com/book/default/chapter/07'), (<lazyT 'Access Control'>, False, 'http://www.web2py.com/book/default/chapter/08'), (<lazyT 'Services'>, False, 'http://www.web2py.com/book/default/chapter/09'), (<lazyT 'Ajax Recipes'>, False, 'http://www.web2py.com/book/default/chapter/10'), (<lazyT 'Deployment Recipes'>, False, 'http://www.web2py.com/book/default/chapter/11'), (<lazyT 'Other Recipes'>, False, 'http://www.web2py.com/book/default/chapter/12'), (<lazyT 'Buy this book'>, False, 'http://stores.lulu.com/web2py')]), (<lazyT 'Community'>, False, None, [(<lazyT 'Groups'>, False, 'http://www.web2py.com/examples/default/usergroups'), (<lazyT 'Twitter'>, False, 'http://twitter.com/web2py'), (<lazyT 'Live chat'>, False, 'http://mibbit.com/?channel=%23web2py&server=irc.mibbit.net'), (<lazyT 'User Voice'>, False, 'http://web2py.uservoice.com/')]), (<lazyT 'Web2py'>, False, 'http://www.web2py.com', [(<lazyT 'Download'>, False, 'http://www.web2py.com/examples/default/download'), (<lazyT 'Support'>, False, 'http://www.web2py.com/examples/default/support'), (<lazyT 'Quick Examples'>, False, 'http://web2py.com/examples/default/examples'), (<lazyT 'FAQ'>, False, 'http://web2py.com/AlterEgo'), (<lazyT 'Free Applications'>, False, 'http://web2py.com/appliances'), (<lazyT 'Plugins'>, False, 'http://web2py.com/plugins'), (<lazyT 'Recipes'>, False, 'http://web2pyslices.com/'), (<lazyT 'Demo'>, False, 'http://web2py.com/demo_admin'), (<lazyT 'Semantic'>, False, 'http://web2py.com/semantic'), (<lazyT 'Layouts'>, False, 'http://web2py.com/layouts'), (<lazyT 'Videos'>, False, 'http://www.web2py.com/examples/default/videos/')])])]"
+p209
+sS'_view_environment'
+p210
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p211
+sS'subtitle'
+p212
+S"<lazyT 'customize me!'>"
+p213
+sS'session_id_name'
+p214
+S"'session_id_daruri'"
+p215
+sS'_custom_commit'
+p216
+S'None'
+p217
+sS'_caller'
+p218
+S'<function <lambda> at 0x327f370>'
+p219
+sS'files'
+p220
+S'[]'
+p221
+sS'view'
+p222
+S"'default/index.html'"
+p223
+ssS'locals'
+p224
+(dp225
+S'i'
+S'6'
+sS'_[2]'
+p226
+S"[('n', 'u'), ('i', 'n'), ('c', 'e'), ('i', 'o'), ('o', 'r'), ('d', 'i')]"
+p227
+sS'k'
+S"'a'"
+p228
+sS'self'
+p229
+S'<gluon.validators.IS_IN_SET object at 0x32f2b90>'
+p230
+sssS'traceback'
+p231
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 188, in restricted\n  File "/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py", line 56, in <module>\n  File "gluon/globals.py", line 95, in <lambda>\n  File "/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py", line 18, in index\n  File "gluon/tools.py", line 2823, in update\n  File "gluon/sqlhtml.py", line 809, in __init__\n  File "gluon/sqlhtml.py", line 272, in widget\n  File "gluon/sqlhtml.py", line 206, in widget\n  File "gluon/validators.py", line 307, in options\nIndexError: string index out of range\n'
+p232
+s.

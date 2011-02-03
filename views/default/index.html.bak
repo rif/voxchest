@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+
+{{block scripts}}
+$(function(){
+    $("#intrebare_evaluare__row>td.w2p_fw").stars({
+        inputType: "select",
+        captionEl: $("#stars-cap"),
+        cancelShow: false,
+        cancelValue: -1
+    });
+});
+{{end}}
+
+<h1>Intrebarea {{=intrebare.id}}</h1>
+
+{{=form}}
+Evaluare: <span id="stars-cap"></span>

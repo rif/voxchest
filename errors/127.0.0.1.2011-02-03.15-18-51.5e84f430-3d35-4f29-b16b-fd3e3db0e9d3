@@ -1,0 +1,454 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p4
+sS'code'
+p5
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a samples controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n## - call exposes all registered services (none by default)\n#########################################################################\n\ndef index():\n    curent = 1\n    if len(request.args) > 0:\n        curent = int(request.args[0])\n    intr = db.intrebare(curent)\n    form = crud.update(db.intrebare, intr, deletable=False, next=URL(\'index\', args=(curent+1)), field_labels={\'continut\':0})\n    return dict(form=form, intrebare=intr)\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request,db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    session.forget()\n    return service()\n\nresponse._vars=response._caller(index)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__hash__'
+p11
+S"<method-wrapper '__hash__' of exceptions.TypeError object at 0x329a4e0>"
+p12
+sS'__setattr__'
+p13
+S"<method-wrapper '__setattr__' of exceptions.TypeError object at 0x329a4e0>"
+p14
+sS'__reduce_ex__'
+p15
+S'<built-in method __reduce_ex__ of exceptions.TypeError object at 0x329a4e0>'
+p16
+sS'__getslice__'
+p17
+S"<method-wrapper '__getslice__' of exceptions.TypeError object at 0x329a4e0>"
+p18
+sS'__getitem__'
+p19
+S"<method-wrapper '__getitem__' of exceptions.TypeError object at 0x329a4e0>"
+p20
+sS'__setstate__'
+p21
+S'<built-in method __setstate__ of exceptions.TypeError object at 0x329a4e0>'
+p22
+sS'__reduce__'
+p23
+S'<built-in method __reduce__ of exceptions.TypeError object at 0x329a4e0>'
+p24
+sS'__str__'
+p25
+S"<method-wrapper '__str__' of exceptions.TypeError object at 0x329a4e0>"
+p26
+sS'args'
+p27
+S'("update() got an unexpected keyword argument \'field_labels\'",)'
+p28
+sS'__getattribute__'
+p29
+S"<method-wrapper '__getattribute__' of exceptions.TypeError object at 0x329a4e0>"
+p30
+sS'__class__'
+p31
+S"<type 'exceptions.TypeError'>"
+p32
+sS'__delattr__'
+p33
+S"<method-wrapper '__delattr__' of exceptions.TypeError object at 0x329a4e0>"
+p34
+sS'__repr__'
+p35
+S"<method-wrapper '__repr__' of exceptions.TypeError object at 0x329a4e0>"
+p36
+sS'__dict__'
+p37
+S'{}'
+p38
+sS'__doc__'
+p39
+S"'Inappropriate argument type.'"
+p40
+sS'__init__'
+p41
+S"<method-wrapper '__init__' of exceptions.TypeError object at 0x329a4e0>"
+p42
+sS'__new__'
+p43
+S'<built-in method __new__ of type object at 0x19fa140>'
+p44
+ssS'evalue'
+p45
+S"update() got an unexpected keyword argument 'field_labels'"
+p46
+sS'request'
+p47
+(dp48
+S'function'
+p49
+S"'index'"
+p50
+sS'body'
+p51
+S'<cStringIO.StringO object at 0x25dee20>'
+p52
+sS'wsgi'
+p53
+S"<Storage {'start_response': <function <lambda> a...flate', 'PATH_INFO': '/daruri/default/index/7'}}>"
+p54
+sS'extension'
+p55
+S"'html'"
+p56
+sS'vars'
+p57
+S'<Storage {}>'
+p58
+sS'cid'
+p59
+S'None'
+p60
+sS'url'
+p61
+S'<gluon.html.XML object at 0x3241f10>'
+p62
+sS'raw_extension'
+p63
+S'None'
+p64
+sg27
+S"['7']"
+p65
+sS'controller'
+p66
+S"'default'"
+p67
+sS'cookies'
+p68
+S"<SimpleCookie: __utma='96992031.364672225.129534...03' sessionid='8ac6b2c4407419651e81807c39ff405f'>"
+p69
+sS'application'
+p70
+S"'daruri'"
+p71
+sS'ajax'
+p72
+S'False'
+p73
+sS'client'
+p74
+S"'127.0.0.1'"
+p75
+sS'env'
+p76
+S"<Storage {'wsgi_multithread': True, 'http_accept...'55260', 'path_info': '/daruri/default/index/7'}>"
+p77
+sS'raw_args'
+p78
+S"'7'"
+p79
+sS'get_vars'
+p80
+S'<Storage {}>'
+p81
+sS'folder'
+p82
+S"'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/'"
+p83
+sS'now'
+p84
+S'datetime.datetime(2011, 2, 3, 15, 18, 51, 962524)'
+p85
+sS'post_vars'
+p86
+S'<Storage {}>'
+p87
+ssS'frames'
+p88
+(lp89
+(dp90
+S'file'
+p91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/restricted.py'
+p92
+sS'dump'
+p93
+(dp94
+sS'lnum'
+p95
+I188
+sS'lines'
+p96
+(dp97
+sS'call'
+p98
+S"(code='# -*- coding: utf-8 -*-\\n# this file is released ...ervice()\\n\\nresponse._vars=response._caller(index)\\n', environment={'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}, layer='/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py')"
+p99
+sS'func'
+p100
+S'restricted'
+p101
+sa(dp102
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p103
+sg93
+(dp104
+sg95
+I55
+sg96
+(dp105
+I44
+S''
+sI45
+S'def call():'
+p106
+sI46
+S'    """'
+p107
+sI47
+S'    exposes services. for example:'
+p108
+sI48
+S'    http://..../[app]/default/call/jsonrpc'
+p109
+sI49
+S'    decorate with @services.jsonrpc the functions to expose'
+p110
+sI50
+S'    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv'
+p111
+sI51
+S'    """'
+p112
+sI52
+S'    session.forget()'
+p113
+sI53
+S'    return service()'
+p114
+ssg98
+S'()'
+p115
+sg100
+S'<module>'
+p116
+sa(dp117
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/gluon/globals.py'
+p118
+sg93
+(dp119
+sg95
+I95
+sg96
+(dp120
+sg98
+S'(f=<function index at 0x34fa370>)'
+p121
+sg100
+S'<lambda>'
+p122
+sa(dp123
+g91
+S'/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py'
+p124
+sg93
+(dp125
+sg95
+I17
+sg96
+(dp126
+I12
+S'def index():'
+p127
+sI13
+S'    curent = 1'
+p128
+sI14
+S'    if len(request.args) > 0:'
+p129
+sI15
+S'        curent = int(request.args[0])'
+p130
+sI16
+S'    intr = db.intrebare(curent)'
+p131
+sI17
+S"    form = crud.update(db.intrebare, intr, deletable=False, next=URL('index', args=(curent+1)), field_labels={'continut':0})"
+p132
+sI18
+S'    return dict(form=form, intrebare=intr)'
+p133
+sI19
+S''
+sI20
+S'def user():'
+p134
+sI21
+S'    """'
+p135
+ssg98
+S'()'
+p136
+sg100
+S'index'
+p137
+sasS'pyver'
+p138
+S'Python 2.5.1: /Volumes/650Gb HD/web2py/web2py.app/Contents/MacOS/python'
+p139
+sS'session'
+p140
+(dp141
+S'_formkey[intrebare/9]'
+p142
+S"'e7f68c89fbf2d8d34bfc7f697ec5e346'"
+p143
+sS'last_query'
+p144
+S"'db.intrebare.id>0'"
+p145
+sS'flash'
+p146
+S'None'
+p147
+sS'_formkey[intrebare/6]'
+p148
+S"'fcea187a1b1f94bc8c7e3f50722097d7'"
+p149
+sS'auth'
+p150
+S'None'
+p151
+sS'_formkey[intrebare/7]'
+p152
+S"'69e74cb7d5cdc2f9cd05694d3e3534f2'"
+p153
+sS'last_orderby'
+p154
+S'None'
+p155
+sS'_formkey[intrebare/8]'
+p156
+S"'d5778ceb79c13fc3460a1b24556292a5'"
+p157
+sS'_formkey[intrebare/10]'
+p158
+S"'121d43315d50ec563250e34879603ec5'"
+p159
+ssS'etype'
+p160
+S"<type 'exceptions.TypeError'>"
+p161
+sS'date'
+p162
+S'Thu Feb  3 15:18:51 2011'
+p163
+sS'response'
+p164
+(dp165
+S'status'
+p166
+S'200'
+p167
+sg51
+S'<cStringIO.StringO object at 0x34f7ca0>'
+p168
+sg68
+S"<SimpleCookie: session_id_daruri='127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'>"
+p169
+sS'_vars'
+p170
+S'None'
+p171
+sS'title'
+p172
+S"'daruri'"
+p173
+sS'session_file'
+p174
+S"<open file '/Volumes/650Gb HD/web2py/web2py.app/...4c63-9a27-021af1b918e4', mode 'rb+' at 0x3267218>"
+p175
+sS'flash'
+p176
+S"''"
+p177
+sS'_custom_rollback'
+p178
+S'None'
+p179
+sS'session_id'
+p180
+S"'127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'"
+p181
+sS'headers'
+p182
+S"<Storage {'Expires': 'Thu, 03 Feb 2011 13:18:51 ...he, must-revalidate, post-check=0, pre-check=0'}>"
+p183
+sS'meta'
+p184
+S"<Storage {'keywords': 'web2py, python, framework... 'Web2py Enterprise Framework', 'author': 'you'}>"
+p185
+sS'session_filename'
+p186
+S"'/Volumes/650Gb HD/web2py/web2py.app/Contents/Res...ns/127.0.0.1-0c77dfd1-6e6a-4c63-9a27-021af1b918e4'"
+p187
+sS'postprocessing'
+p188
+S'[]'
+p189
+sS'menu'
+p190
+S"[(<lazyT 'Home'>, False, <gluon.html.XML object at 0x3252590>, [])]"
+p191
+sS'_view_environment'
+p192
+S"{'A': <class 'gluon.html.A'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'CENTER': <class 'gluon.html.CENTER'>, 'CLEANUP': <class 'gluon.validators.CLEANUP'>, 'CODE': <class 'gluon.html.CODE'>, 'CRYPT': <class 'gluon.validators.CRYPT'>, ...}"
+p193
+sS'subtitle'
+p194
+S"<lazyT 'customize me!'>"
+p195
+sS'session_id_name'
+p196
+S"'session_id_daruri'"
+p197
+sS'_custom_commit'
+p198
+S'None'
+p199
+sS'_caller'
+p200
+S'<function <lambda> at 0x34ea7b0>'
+p201
+sS'files'
+p202
+S'[]'
+p203
+sS'view'
+p204
+S"'default/index.html'"
+p205
+ssS'locals'
+p206
+(dp207
+S'curent'
+p208
+S'7'
+sS'intr'
+p209
+S"<Row {'update_record': <function <lambda> at 0x3...elete_record': <function <lambda> at 0x32c8230>}>"
+p210
+sssS'traceback'
+p211
+S'Traceback (most recent call last):\n  File "gluon/restricted.py", line 188, in restricted\n  File "/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py", line 55, in <module>\n  File "gluon/globals.py", line 95, in <lambda>\n  File "/Volumes/650Gb HD/web2py/web2py.app/Contents/Resources/applications/daruri/controllers/default.py", line 17, in index\nTypeError: update() got an unexpected keyword argument \'field_labels\'\n'
+p212
+s.
