@@ -76,8 +76,30 @@ crud.settings.auth = None                      # =auth to enforce authorization 
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
+db.define_table('chestionar',
+                Field('nume', unique=True),
+                Field('descriere', 'text'),
+                Field('activ', default=True),
+                Field('creat', 'datetime', default=request.now),
+                format='%(nume)s'
+)
+
 db.define_table('intrebare',
-    Field('continut', writable=False, unique=True),
-    Field('evaluare', 'integer', requires=IS_IN_SET([0,1,2,3], zero=None), default=0),
-    format='%(continut)s'
+                Field('chestionar', db.chestionar),
+                Field('continut', writable=False, unique=True),
+                format='%(continut)s'
+)
+
+db.define_table('raspuns',
+                Field('chestionar', db.chestionar, readable=False, writable=False),
+                Field('user', db.auth_user, default=auth.user_id, notnull=True, readable=False, writable=False),
+                Field('lista', 'list:integer')
+)
+
+db.define_table('rezultat',
+                 Field('chestionar', db.chestionar, readable=False, writable=False),
+                 Field('row', 'integer'),
+                 Field('nume'),
+                 Field('descriere'),
+                 format='%(nume)s'
 )

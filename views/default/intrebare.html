@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+
+{{block scripts}}
+$(function(){
+    $("#evaluare").stars({
+        inputType: "select",
+        captionEl: $("#stars-cap"),
+        cancelShow: false,
+        cancelValue: -1
+    });
+});
+{{end}}
+
+<h1>Intrebarea {{=intrebare.id}}/{{=count}}</h1>
+<h2>{{=intrebare.continut}}</h2>
+
+{{=form}}
+
+<span id="stars-cap"></span>
+
+{{if intrebare.id>1:}}
+<br/>
+<a href="{{=URL('intrebare', args=(intrebare.chestionar, intrebare.id-1))}}">Precedenta</a>
+{{pass}}

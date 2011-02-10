@@ -1,16 +1,6 @@
 {{extend 'layout.html'}}
 
-{{block scripts}}
-$(function(){
-    $("#intrebare_evaluare__row>td.w2p_fw").stars({
-        inputType: "select",
-        captionEl: $("#stars-cap"),
-        cancelShow: false,
-        cancelValue: -1
-    });
-});
-{{end}}
-
-<h1>Intrebarea {{=intrebare.id}} (Evaluare: <span id="stars-cap"></span>)</h1>
-
-{{=form}}
+<h1>Chestionare</h1>
+{{for c in chestionare:}}
+<h2><a href="{{=URL('intrebare', args=(c.id,1))}}">{{=c.nume}}</a> - {{=c.descriere}}</h2>
+{{pass}}

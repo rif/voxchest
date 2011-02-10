@@ -60,3 +60,51 @@ CREATE TABLE intrebare(
     evaluare CHAR(512)
 );
 success!
+timestamp: 2011-02-10T14:28:13.266884
+CREATE TABLE chestionar(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nume CHAR(512),
+    creat TIMESTAMP
+);
+success!
+timestamp: 2011-02-10T14:28:13.285686
+ALTER TABLE intrebare ADD chestionar INTEGER REFERENCES chestionar(id) ON DELETE CASCADE;
+timestamp: 2011-02-10T14:28:29.063265
+CREATE TABLE raspuns(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chestionar INTEGER REFERENCES chestionar(id) ON DELETE CASCADE,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    lista TEXT
+);
+success!
+DROP TABLE raspuns;
+success!
+timestamp: 2011-02-10T15:58:31.078050
+CREATE TABLE raspuns(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chestionar INTEGER REFERENCES chestionar(id) ON DELETE CASCADE,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    lista TEXT
+);
+success!
+timestamp: 2011-02-10T16:10:19.680694
+ALTER TABLE chestionar ADD activ CHAR(512);
+timestamp: 2011-02-10T16:15:03.375394
+ALTER TABLE chestionar ADD descriere TEXT;
+timestamp: 2011-02-10T16:27:16.885194
+CREATE TABLE rezultat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chestionar INTEGER REFERENCES chestionar(id) ON DELETE CASCADE,
+    index INTEGER,
+    nume CHAR(512),
+    descriere CHAR(512)
+);
+timestamp: 2011-02-10T16:28:08.981008
+CREATE TABLE rezultat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chestionar INTEGER REFERENCES chestionar(id) ON DELETE CASCADE,
+    row INTEGER,
+    nume CHAR(512),
+    descriere CHAR(512)
+);
+success!

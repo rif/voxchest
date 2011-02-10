@@ -1,18 +1,22 @@
 (dp1
-S'continut'
+S'chestionar'
 p2
-S'CHAR(512) UNIQUE'
+S'INTEGER REFERENCES chestionar(id) ON DELETE CASCADE'
 p3
-sS'evaluare'
+sS'continut'
 p4
-S'CHAR(512)'
+S'CHAR(512) UNIQUE'
 p5
-sS'numar'
+sS'evaluare'
 p6
-S'INTEGER UNIQUE'
+S'CHAR(512)'
 p7
-sS'id'
+sS'numar'
 p8
-S'INTEGER PRIMARY KEY AUTOINCREMENT'
+S'INTEGER UNIQUE'
 p9
+sS'id'
+p10
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p11
 s.
