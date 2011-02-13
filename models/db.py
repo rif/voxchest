@@ -99,7 +99,7 @@ db.define_table('raspuns',
 
 db.define_table('rezultat',
                  Field('chestionar', db.chestionar, readable=False, writable=False),
-                 Field('row', 'integer'),
+                 Field('pos', 'integer'),
                  Field('nume'),
                  Field('descriere'),
                  format='%(nume)s',
