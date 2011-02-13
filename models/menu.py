@@ -4,7 +4,7 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.title = Chestionare Vox
+response.title = T('Chestionare Vox')
 response.subtitle = T('Chestionare biserica Vox Domini Timisoara')
 
 #http://dev.w3.org/html5/markup/meta.name.html

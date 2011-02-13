@@ -1,6 +1,9 @@
 {{extend 'layout.html'}}
 
+{{=form}}
 <h1>Chestionare</h1>
 {{for c in chestionare:}}
 <h2><a href="{{=URL('intrebare', args=(c.id,1))}}">{{=c.nume}}</a> - {{=c.descriere}}</h2>
 {{pass}}
+
+

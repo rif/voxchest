@@ -1,16 +1,28 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
-
-#########################################################################
-## This is a samples controller
-## - index is the default action of any application
-## - user is required for authentication and authorization
-## - download is for downloading files uploaded in the db (does streaming)
-## - call exposes all registered services (none by default)
-#########################################################################
 
 def index():
-    return dict(chestionare=db(db.chestionar.activ==True).select())
+    form = crud.create(db.chestionar, message='Chestionar creat!')
+    return dict(form=form, chestionare=db(db.chestionar.activ==True).select())
+
+def intrebari():
+    chest = 1
+    if len(request.args) > 0:
+        chest = request.args[0]
+    intrebari = db(db.intrebare.chestionar==chest)
+    db.intrebare.pos.default = intrebari.count() + 1
+    db.intrebare.chestionar.default = chest
+    form = FORM(TEXTAREA(_name='text'), INPUT(_type='submit'))
+    if form.accepts(request.vars, session):
+        pos = 1
+        text = form.vars['text']
+        for line in text.split('\n'):
+            if line[0].isdigit():
+                pos, continut = line.split('.', 1)
+            else:
+                continut = line
+            db.intrebare.insert(pos=pos, continut=continut.strip())
+            pos = int(pos) + 1            
+    return dict(form=form, intrebari=intrebari.select(orderby=db.intrebare.pos))
 
 @auth.requires_login()
 def intrebare():
@@ -18,8 +30,10 @@ def intrebare():
     if len(request.args) > 1:
         chest = request.args[0]
         curent = int(request.args[1])
-    intr = db.intrebare(chestionar=chest, id=curent)
+    intr = db.intrebare(chestionar=chest, pos=curent)
     count = db(db.intrebare.chestionar==chest).count()
+    if count == 0:
+        return redirect(URL('intrebari', args=chest))
     form = FORM(SELECT(
                 OPTION('Niciodata', _value='0'),
                 OPTION('Uneori', _value='1'),

@@ -11,14 +11,14 @@ $(function(){
 });
 {{end}}
 
-<h1>Intrebarea {{=intrebare.id}}/{{=count}}</h1>
+<h1>Intrebarea {{=intrebare.pos}}/{{=count}}</h1>
 <h2>{{=intrebare.continut}}</h2>
 
 {{=form}}
 
 <span id="stars-cap"></span>
 
-{{if intrebare.id>1:}}
+{{if intrebare.pos>1:}}
 <br/>
 <a href="{{=URL('intrebare', args=(intrebare.chestionar, intrebare.id-1))}}">Precedenta</a>
 {{pass}}

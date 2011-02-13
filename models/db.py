@@ -6,7 +6,7 @@
 #########################################################################
 
 if request.env.web2py_runtime_gae:            # if running on Google App Engine
-    db = DAL('gae://mynamespace')             # connect to Google BigTable
+    db = DAL('gae')             # connect to Google BigTable
     session.connect(request, response, db = db) # and store sessions and tickets there
     ### or use the following lines to store sessions in Memcache
     # from gluon.contrib.memdb import MEMDB
@@ -80,20 +80,21 @@ db.define_table('chestionar',
                 Field('nume', unique=True),
                 Field('descriere', 'text'),
                 Field('activ', default=True),
-                Field('creat', 'datetime', default=request.now),
-                format='%(nume)s'
+                Field('creat', 'datetime', default=request.now, readable=False, writable=False),
+                format='%(nume)s',
 )
 
 db.define_table('intrebare',
-                Field('chestionar', db.chestionar),
-                Field('continut', writable=False, unique=True),
-                format='%(continut)s'
+                Field('pos', 'integer', readable=False, writable=False),
+                Field('chestionar', db.chestionar, readable=False, writable=False),
+                Field('continut', notnull=True, unique=True),
+                format='%(continut)s',
 )
 
 db.define_table('raspuns',
                 Field('chestionar', db.chestionar, readable=False, writable=False),
                 Field('user', db.auth_user, default=auth.user_id, notnull=True, readable=False, writable=False),
-                Field('lista', 'list:integer')
+                Field('lista', 'list:integer'),
 )
 
 db.define_table('rezultat',
@@ -101,5 +102,5 @@ db.define_table('rezultat',
                  Field('row', 'integer'),
                  Field('nume'),
                  Field('descriere'),
-                 format='%(nume)s'
+                 format='%(nume)s',
 )
