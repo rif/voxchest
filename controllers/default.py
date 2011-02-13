@@ -4,6 +4,7 @@ def index():
     form = crud.create(db.chestionar, message='Chestionar creat!')
     return dict(form=form, chestionare=db(db.chestionar.activ==True).select())
 
+@auth.requires_membership('editor')
 def intrebari():
     chest = 1
     if len(request.args) > 0:

@@ -1,6 +1,7 @@
 {{extend 'layout.html'}}
 
-{{=form}}
+{{if auth.has_membership('editor'):}} {{=form}} {{pass}}
+
 <h1>Chestionare</h1>
 {{for c in chestionare:}}
 <h2><a href="{{=URL('intrebare', args=(c.id,1))}}">{{=c.nume}}</a> - {{=c.descriere}}</h2>
